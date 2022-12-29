@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open sans', sans-serif;
+}
+body{
+    background-color: #ffffff;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    position: fixed;
+    transition: all .35s ease;
+    background-color: #8F773F;
+    padding: 14px 14%;
+}
+
+.menu{
+    display: flex;
+    margin-top: 3rem;
+    gap: 3rem;
+    list-style-type: none;
+}
+
+.menu li{
+    float:left;
+    padding-left: 20px;
+    padding-right: 20px;
+    list-style-type: none;
+}
+.dpdown{
+    display: none;
+    text-align: left;
+    position: relative;
+}
+
+.dpdown a .submenu{
+    background-color: #DAC084;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.dpdown a:hover{
+    background-color: #DAC084;
+    transition: 0.3s;
+}
+
+.menu li:hover .dpdown{
+    display: block;
+    padding-top: 10px;
+    transition: 0.3s;
+}
+
+
+.menu a{
+   color: black;
+   text-decoration: none;
+   font-weight: 700;
+   transition: 0.3s;
+}
+
+.menu a:hover{
+    background-color: #DAC084;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/*LOGIN*/
+.box{
+    margin-top: 10rem;
+    color: white;
+    position: relative;
+    top: 70%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    background-color: #151E30;
+    padding: 15px;
+    border-radius: 15px;
+    width: 30%;
+}
+
+fieldset{
+    padding: 10px;
+    border: 3px solid #849fd9;
+}
+
+legend{
+    border: 1px solid #849fd9;
+    padding: 10px;
+    text-align: center;
+    background-color: #849fd9;
+    border-radius: 5px;
+}
+
+.inputbox{
+    position: relative;
+}
+
+.inputuser{
+    background: none;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 1px;
+}
+
+.labelinput{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.inputuser:focus ~ .labelinput,
+.inputuser:valid ~ .labelinput{
+    top: -20px;
+    font-size: 12px;
+    color: #849fd9;
+}
+
+#submit {
+    background-color: #849fd9;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+#submit:hover{
+    background-color: #6b96f4;
+}
+
+.cadastre {
+    color: #DAC084;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.cadastre:hover{
+    color: #8F773F;
+}
+
+/*RODAPÉ*/
+.Rodape{
+    display: flex;
+    gap: 5rem;
+    justify-content: space-around;
+    background-color: #151E30;
+    padding: 3rem;
+}
+
+.Rodape h3{
+    height: 30px;
+    color: #fff;
+}
+
+.Rodape p{
+    height: 25px;
+}
+
+.Rodape a{
+    color: rgb(169, 169, 169);
+}
+/*RODAPÉ*/

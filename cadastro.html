@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Colleto Sport's</title>
+    <link rel="icon" type="image/x-icon" href="Logopreta.svg" widht="30px">
+    <script>
+        function abriralerta(){
+            swal({
+                title: "Bom Trabalho",
+                text: "Seus dados foram cadastrados com sucesso!",
+                icon: "success",
+                button: "OK",
+                });
+        }
+    </script>
+    <link rel="stylesheet" href="CSS/cadastro.css">
+</head>
+<body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><!--Alerta-->
+
+    <header>
+        <div class="logo">
+            <img src="Logopreta.svg" alt="logo da loja" title="Logo da loja"
+            width="120px" height="120px">
+        </div> <!--logo-->
+            <div class="menu">
+                <ul id="menuint">
+                    <li><a href="inicio.html">Início</a></li>
+                    <li>
+                        <a href="#">Categorias</a>
+                        <div class="dpdown">
+                            <a href="masculina.html"><div class="submenu">Moda Masculina</div></a>
+                            <a href="feminina.html"><div class="submenu">Moda Feminina</div></a>
+                            <a href="esportes.html"><div class="submenu">Esportes</div></a>
+                        </div>
+                    </li>
+                    <li><a href="atendimento.html">Atendimento</a></li>
+                    <li><a href="login.html"><img src="iconpeople.svg" alt="iconpeople" width="20px" height="20px"></a></li>
+                </ul>
+            </div><!--CabeçalhoMenu-->
+    </header><!--Cabeçalho-->
+
+    <div class="box">
+        <fieldset>
+            <legend><b>Cadastro</b></legend>
+            </br>
+            <div class="inputbox">
+                <input type="text" name="nome" inputmode="nome" class="inputuser" title="Ex: João da Silva" alt="nome" required>
+                <label for="nome" class="labelinput">Nome Completo</label>
+            </div>
+        </br></br>
+            <div class="inputbox">
+                <input type="text" name="email" inputmode="email" class="inputuser" title="Ex: usuario@gmail.com" alt="email" required>
+                <label for="text" class="labelinput">E-mail</label>
+            </div>
+        </br></br>
+            <div class="inputbox">
+                <input type="tel" name="telefone" inputmode="telefone" class="inputuser" title="Ex: +55 55 99999-9999" alt="telefone" required>
+                <label for="tel" class="labelinput">Telefone</label>
+            </div>
+        </br></br>
+            <div class="inputbox">
+            <input type="password" name="senha" class="inputuser" title="Ex: usuario1234" alt="senha" required>
+            <label for="senha" class="labelinput">Senha</label>
+            </div>
+        </br>
+            <p>Sexo</p>
+            <input type="radio" id="feminino" name="genero" value="feminino" required>
+            <label for="feminino">Feminino</label>
+        </br>
+            <input type="radio" id="masculino" name="genero" value="masculino" required>
+            <label for="masculino">Masculino</label>
+        </br>
+            <input type="radio" id="outro" name="genero" value="outro" required>
+            <label for="outro">Outro</label>
+        </br></br>
+                <label for="data_nascimento"><b>Data de Nascimento</b></label>
+                <input type="date" name="data_nascimento" inputmode="data_nascimento" required>
+        </br></br>
+                <input type="submit" name="submit" id="submit" onclick="abriralerta()">
+        </fieldset>
+    </div>
+</body>
+    <div class="Rodape">
+        <div class="Mensagem">
+            <h3>Colleto Sport's</h3>
+            <a href="https://web.whatsapp.com">Nos envie uma mensagem!</a>
+        </div>
+
+        <div class="Explorar">
+            <h3>Explore</h3>
+            <p><a href="inicio.html">Início</a></p>
+            <p><a href="atendimento.html">Atendimento</a></p>
+            <p><a href="cadastro.html">Cadastre-se para receber novidades por e-mail!</a></p>
+        </div>
+    </div><!--Rodapé-->
+</html>

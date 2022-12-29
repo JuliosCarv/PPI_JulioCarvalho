@@ -1,0 +1,235 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open sans', sans-serif;
+}
+body{
+    background-color: #ffffff;
+}
+header{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    position: fixed;
+    transition: all .35s ease;
+    background-color: #8F773F;
+    padding: 14px 14%;
+}
+
+.menu{
+    display: flex;
+    margin-top: 3rem;
+    gap: 3rem;
+    list-style-type: none;
+}
+
+.menu li{
+    float:left;
+    padding-left: 20px;
+    padding-right: 20px;
+    list-style-type: none;
+}
+.dpdown{
+    display: none;
+    text-align: left;
+    position: relative;
+}
+
+.dpdown a .submenu{
+    background-color: #DAC084;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.dpdown a:hover{
+    background-color: #DAC084;
+    transition: 0.3s;
+}
+
+.menu li:hover .dpdown{
+    display: block;
+    padding-top: 10px;
+    transition: 0.3s;
+}
+
+
+.menu a{
+   color: black;
+   text-decoration: none;
+   font-weight: 700;
+   transition: 0.3s;
+}
+
+.menu a:hover{
+    background-color: #DAC084;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+
+/*TEXTOMEIO*/
+.texto{
+    display: flex;
+    justify-content: center;
+    color: #363636;
+}
+/*TEXTOMEIO*/
+
+
+/*SLIDER*/
+.slider{
+    margin: 0 auto;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slides{
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 25%;
+    position: relative;
+    transition: 2s;
+}
+
+.slide img{
+    width: 800px;
+}
+
+.manual-navigation{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+
+.manual-btn{
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 20px;
+}
+
+.manual-btn:hover{
+    background-color: #fff;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first{
+    margin-left: -75%;
+}
+
+.navigation-auto div{
+    border: 2px solid #ffffff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.navigation-auto{
+    position: absolute;
+    width: 800px;
+    margin-top: 360px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 20px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background-color: #fff;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background-color: #fff;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background-color: #fff;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background-color: #fff;
+}
+/*SLIDER*/
+
+/*BENEFICIOS*/
+.beneficios {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.benef1 a{
+    margin: 30px; 
+
+}
+
+.benef2 a{
+    margin: 30px; 
+
+}
+
+.benef3 a{
+    margin: 30px; 
+
+}
+/*BENEFICIOS*/
+
+/*RODAPÉ*/
+.Rodape{
+    display: flex;
+    gap: 5rem;
+    justify-content: space-around;
+    background-color: #151E30;
+    padding: 3rem;
+}
+
+.Rodape h3{
+    height: 30px;
+    color: #fff;
+}
+
+.Rodape p{
+    height: 25px;
+}
+
+.Rodape a{
+    color: rgb(169, 169, 169);
+}
+/*RODAPÉ*/
