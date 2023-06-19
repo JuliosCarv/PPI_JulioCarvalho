@@ -1,3 +1,19 @@
+<?php 
+    if(isset($_POST['submit']))
+    {
+        print_r("Nome: " . $_POST['nome']);
+        print_r('<br>');
+        print_r("Email: " . $_POST['email']);
+        print_r('<br>');
+        print_r("Telefone: " . $_POST['telefone']);
+        print_r('<br>');
+        print_r("Senha: " . $_POST['senha']);
+        print_r('<br>');
+        print_r("Sexo: " . $_POST['genero']);
+        print_r('<br>');
+        print_r("Data de Nascimento: " . $_POST['data_nascimento']);
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,22 +44,23 @@
         </div> <!--logo-->
             <div class="menu">
                 <ul id="menuint">
-                    <li><a href="inicio.html">Início</a></li>
+                    <li><a href="inicio.php">Início</a></li>
                     <li>
                         <a href="#">Categorias</a>
                         <div class="dpdown">
-                            <a href="masculina.html"><div class="submenu">Moda Masculina</div></a>
-                            <a href="feminina.html"><div class="submenu">Moda Feminina</div></a>
-                            <a href="esportes.html"><div class="submenu">Esportes</div></a>
+                            <a href="masculina.php"><div class="submenu">Moda Masculina</div></a>
+                            <a href="feminina.php"><div class="submenu">Moda Feminina</div></a>
+                            <a href="esportes.php"><div class="submenu">Esportes</div></a>
                         </div>
                     </li>
-                    <li><a href="atendimento.html">Atendimento</a></li>
-                    <li><a href="login.html"><img src="iconpeople.svg" alt="iconpeople" width="20px" height="20px"></a></li>
+                    <li><a href="atendimento.php">Atendimento</a></li>
+                    <li><a href="login.php"><img src="iconpeople.svg" alt="iconpeople" width="20px" height="20px"></a></li>
                 </ul>
             </div><!--CabeçalhoMenu-->
     </header><!--Cabeçalho-->
 
-    <div class="box">
+    <div class="box"><!--Fromulário-->
+        <form action="cadastro.php" method="post">
         <fieldset>
             <legend><b>Cadastro</b></legend>
             </br>
@@ -82,6 +99,7 @@
         </br></br>
                 <input type="submit" name="submit" id="submit" onclick="abriralerta()">
         </fieldset>
+    </form>
     </div>
 </body>
     <div class="Rodape">
@@ -92,9 +110,9 @@
 
         <div class="Explorar">
             <h3>Explore</h3>
-            <p><a href="inicio.html">Início</a></p>
-            <p><a href="atendimento.html">Atendimento</a></p>
-            <p><a href="cadastro.html">Cadastre-se para receber novidades por e-mail!</a></p>
+            <p><a href="inicio.php">Início</a></p>
+            <p><a href="atendimento.php">Atendimento</a></p>
+            <p><a href="cadastro.php">Cadastre-se para receber novidades por e-mail!</a></p>
         </div>
     </div><!--Rodapé-->
 </html>
