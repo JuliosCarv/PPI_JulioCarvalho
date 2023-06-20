@@ -16,7 +16,7 @@
             </div> <!--logo-->
                 <div class="menu">
                     <ul id="menuint">
-                        <li><a href="inicio.php">Início</a></li>
+                        <li><a href="index.php">Início</a></li>
                         <li>
                             <a href="categorias.php">Categorias</a>
                             <div class="dpdown">
@@ -63,7 +63,7 @@
 
     <div class="Explorar">
         <h3>Explore</h3>
-        <p><a href="inicio.php">Início</a></p>
+        <p><a href="index.php">Início</a></p>
         <p><a href="atendimento.php">Atendimento</a></p>
         <p><a href="cadastro.php">Cadastre-se para receber novidades por e-mail!</a></p>
     </div>

@@ -1,19 +1,3 @@
-<?php 
-    if(isset($_POST['submit']))
-    {
-        print_r("Nome: " . $_POST['nome']);
-        print_r('<br>');
-        print_r("Email: " . $_POST['email']);
-        print_r('<br>');
-        print_r("Telefone: " . $_POST['telefone']);
-        print_r('<br>');
-        print_r("Senha: " . $_POST['senha']);
-        print_r('<br>');
-        print_r("Sexo: " . $_POST['genero']);
-        print_r('<br>');
-        print_r("Data de Nascimento: " . $_POST['data_nascimento']);
-    }
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -44,7 +28,7 @@
         </div> <!--logo-->
             <div class="menu">
                 <ul id="menuint">
-                    <li><a href="inicio.php">Início</a></li>
+                    <li><a href="index.php">Início</a></li>
                     <li>
                         <a href="#">Categorias</a>
                         <div class="dpdown">
@@ -60,7 +44,7 @@
     </header><!--Cabeçalho-->
 
     <div class="box"><!--Fromulário-->
-        <form action="cadastro.php" method="post">
+        <form action="" method="post">
         <fieldset>
             <legend><b>Cadastro</b></legend>
             </br>
@@ -110,7 +94,7 @@
 
         <div class="Explorar">
             <h3>Explore</h3>
-            <p><a href="inicio.php">Início</a></p>
+            <p><a href="index.php">Início</a></p>
             <p><a href="atendimento.php">Atendimento</a></p>
             <p><a href="cadastro.php">Cadastre-se para receber novidades por e-mail!</a></p>
         </div>
