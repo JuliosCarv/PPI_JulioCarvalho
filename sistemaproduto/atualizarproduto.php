@@ -1,7 +1,7 @@
 <?php
 // Informações de conexão com o banco de dados
 $host = 'localhost';
-$dbname = 'ppi20.06';
+$dbname = 'colletosports';
 $user = 'root';
 $password = '';
 
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$nome, $descricao, $preco, $quantidade, $id]);
 
     // Redireciona para a página de leitura de produtos
-    header("Location: lerproduto.php");
+    header("Location: produtos.php");
     exit();
 }
 ?>

@@ -3,7 +3,7 @@
     $dbHost = 'localhost';
     $dbUsername = 'root';
     $dbPassword = '';
-    $dbName = 'ppi20.06';
+    $dbName = 'colletosports';
     //conexao com o banco de dados
     $connect = mysqli_connect($dbHost, $dbUsername, $dbPassword, $dbName);
 

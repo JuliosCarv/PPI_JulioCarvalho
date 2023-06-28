@@ -1,7 +1,7 @@
 <?php
 // Informações de conexão com o banco de dados
 $host = 'localhost';
-$dbname = 'ppi20.06';
+$dbname = 'colletosports';
 $user = 'root';
 $password = '';
 

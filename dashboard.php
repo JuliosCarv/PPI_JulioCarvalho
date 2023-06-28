@@ -1,5 +1,4 @@
 <?php session_start();
-// $seguranca = isset($_SESSION['ativa'])  ? TRUE : header("location: login.php")
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,20 +17,11 @@
   </head>
 
   <body>
-  <!-- <?php //if($seguranca){ ?> -->
-    <!-- <header>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Colleto Sports</a>
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="index.php">Sair</a>
-        </li>
-      </ul>
-    </nav>
-    </header> -->
 
-<!-- <h1>Painel Administrativo Colleto Sport's</h1>
-    <h3>Seja Bem Vindo! <?php $_SESSION['nome']; ?></h3> -->
+
+    <nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Colleto Sports</a>
+    </nav>
 
     <div class="container-fluid">
       <div class="row">
@@ -54,6 +44,12 @@
                 <a class="nav-link" href="users.php">
                   <span data-feather="users"></span>
                   Usuários
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pedidos.php">
+                  <span data-feather="file"></span>
+                  Pedidos
                 </a>
               </li>
               <li class="nav-item">

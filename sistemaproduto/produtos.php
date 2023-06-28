@@ -51,7 +51,10 @@ $produtos = buscar($connect, $tabela, 1, $order);
     <title>Gerenciador de Produtos</title>
 </head>
 <body>
-    <?php //if ($seguranca) { ?>
+
+<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Colleto Sports</a>
+    </nav>
         <div class="container-fluid">
             <div class="row">
                 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -74,6 +77,12 @@ $produtos = buscar($connect, $tabela, 1, $order);
                                     <span data-feather="users"></span>
                                     Usuários
                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pedidos.php">
+                                    <span data-feather="file"></span>
+                                    Pedidos
+                                    </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php">

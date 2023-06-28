@@ -52,7 +52,10 @@ require_once "sistemalogin/conexao.php";
     <title>Gerenciador de Usuários</title>
 </head>
 <body>
-    <?php //if ($seguranca) { ?>
+
+<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Colleto Sports</a>
+    </nav>
         <div class="container-fluid">
             <div class="row">
                 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -76,6 +79,13 @@ require_once "sistemalogin/conexao.php";
                                     Usuários
                                 </a>
                             </li>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pedidos.php">
+                                    <span data-feather="file"></span>
+                                    Pedidos
+                                    </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php">
                                     Sair
@@ -94,10 +104,6 @@ require_once "sistemalogin/conexao.php";
                                     <button class="btn btn-sm btn-outline-secondary">Compartilhar</button>
                                     <button class="btn btn-sm btn-outline-secondary">Exportar</button>
                                 </div>
-                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                                    <span data-feather="calendar"></span>
-                                    Esta semana
-                                </button>
                             </div>
                         </div>
                     </div>

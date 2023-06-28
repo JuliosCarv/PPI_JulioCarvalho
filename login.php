@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'ppi20.06';
+$dbname = 'colletosports';
 $user = 'root';
 $password = '';
 

@@ -1,5 +1,5 @@
 <?php
-$pdo = new PDO('mysql:host=localhost;dbname=ppi20.06', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=colletosports', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Inserção
