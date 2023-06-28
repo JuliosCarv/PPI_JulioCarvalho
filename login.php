@@ -1,4 +1,46 @@
-<?php require_once "sistemalogin/conexao.php"; ?>
+<?php
+$host = 'localhost';
+$dbname = 'ppi20.06';
+$user = 'root';
+$password = '';
+
+try {
+    $connect = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
+    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro de conexão com o banco de dados: " . $e->getMessage());
+}
+
+function login($connect) {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $query = "SELECT * FROM usuario WHERE email = :email AND senha = :senha";
+    $stmt = $connect->prepare($query);
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':senha', $senha);
+    
+    try {
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            if ($email == 'juliosouza490@gmail.com' && $senha == 'julio123') {
+                header('Location: dashboard.php');
+                exit();
+            } else {
+                header('Location: index.php');
+                exit();
+            }
+        } else {
+            echo "Usuário não encontrado";
+        }
+    } catch (PDOException $e) {
+        die("Erro ao realizar o login: " . $e->getMessage());
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,8 +54,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>  
-    <link rel="preconnect" href="https://fonts.googleapis.com%22%3E/
-    <link rel="preconnect" href="https://fonts.gstatic.com/" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" >
 </head>
 <body>
     <header>
@@ -21,54 +63,54 @@
             <img src="Logopreta.svg" alt="logo da loja" title="Logo da loja"
             width="120px" height="120px">
         </div> <!--logo-->
-            <div class="menu">
-                <ul id="menuint">
-                    <li><a href="index.php">Início</a></li>
-                    <li>
-                        <a href="#">Categorias</a>
-                        <div class="dpdown">
-                            <a href="masculina.php"><div class="submenu">Moda Masculina</div></a>
-                            <a href="feminina.php"><div class="submenu">Moda Feminina</div></a>
-                            <a href="esportes.php"><div class="submenu">Esportes</div></a>
-                        </div>
-                    </li>
-                    <li><a href="atendimento.php">Atendimento</a></li>
-                    <li><a href="login.php"><img src="iconpeople.svg" alt="iconpeople" width="20px" height="20px"></a></li>
-                </ul>
-            </div><!--CabeçalhoMenu-->
+        <div class="menu">
+            <ul id="menuint">
+                <li><a href="index.php">Início</a></li>
+                <li>
+                    <a href="#">Categorias</a>
+                    <div class="dpdown">
+                        <a href="masculina.php"><div class="submenu">Moda Masculina</div></a>
+                        <a href="feminina.php"><div class="submenu">Moda Feminina</div></a>
+                        <a href="esportes.php"><div class="submenu">Esportes</div></a>
+                    </div>
+                </li>
+                <li><a href="atendimento.php">Atendimento</a></li>
+                <li><a href="login.php"><img src="iconpeople.svg" alt="iconpeople" width="20px" height="20px"></a></li>
+            </ul>
+        </div><!--CabeçalhoMenu-->
     </header><!--Cabeçalho-->
 
-</br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     <div class="box">
         <form action="" method="post">
             <fieldset>
                 <legend><b>Login</b></legend>
-                </br>
+                <br>
                 <div class="inputbox">
                     <input type="text" name="email" inputmode="email" class="inputuser" title="Ex: usuario@gmail.com" alt="email" required>
                     <label for="text" class="labelinput">E-mail</label>
                 </div>
-                </br></br>
+                <br><br>
                 <div class="inputbox">
                     <input type="password" name="senha" class="inputuser" title="Ex: usuario1234" alt="senha" required>
                     <label for="senha" class="labelinput">Senha</label>
                 </div>
-                </br>
-                    <input type="submit" name="entrar" value="Entrar" id="submit">
-                </br>
+                <br>
+                <input type="submit" name="entrar" value="Entrar" id="submit">
+                <br>
                 <p class="antc">Ainda não tem uma conta?</p><a class="cadastre" href="cadastro.php">Cadastre-se agora!</a>
             </fieldset>
         </form>
     </div>
 
-        <!-- Mensagem Conexao -->
-        <?php 
-        if (isset($_POST['entrar'])){
-            login($connect);
-        }
-        ?>
-</br>
+    <!-- Mensagem Conexao -->
+    <?php 
+    if (isset($_POST['entrar'])){
+        login($connect);
+    }
+    ?>
+    <br>
 
     <div class="Rodape">
         <div class="Mensagem">

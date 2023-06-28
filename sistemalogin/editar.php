@@ -1,6 +1,6 @@
 <?php
 session_start();
-$seguranca = isset($_SESSION['ativa']) ? true : header("location: login.php");
+//$seguranca = isset($_SESSION['ativa']) ? true : header("location: login.php");
 require_once "conexao.php";
 
 if (isset($_POST['atualizar'])) {
@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
     <title>Editar Usuário</title>
 </head>
 <body>
-    <?php if ($seguranca) : ?>
+    <?php //if ($seguranca) : ?>
         <div class="container">
             <h1>Editar Usuário</h1>
             <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -76,10 +76,10 @@ if (isset($_GET['id'])) {
                 <button type="submit" class="btn btn-primary" name="atualizar">Atualizar</button>
             </form>
         </div>
-    <?php else : ?>
+    <?php //else : ?>
         <p>Você não tem permissão para acessar esta página. Faça login primeiro.</p>
-        <p><a href="login.php">Login</a></p>
-    <?php endif; ?>
+        <p><a href="\PPI_ColletoSports_JulioCarvalhoERRO/login.php">Login</a></p>
+    <?php //endif; ?>
 
     <!-- Principal JavaScript do Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

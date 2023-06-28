@@ -1,40 +1,39 @@
 <?php
 session_start();
-//$seguranca = isset($_SESSION['ativa']) ? true : header("location: users.php");
-require_once "sistemalogin/conexao.php";
+require_once __DIR__ . "/../sistemalogin/conexao.php";
 
-    if (isset($_GET['action']) && $_GET['action'] == 'update') {
-        // Lógica de atualização do usuário
-        if (isset($_POST['nome']) && isset($_POST['email']) && isset($_POST['data_nasc'])) {
-            $id = $_POST['id'];
-            $nome = $_POST['nome'];
-            $email = $_POST['email'];
-            $data_nasc = $_POST['data_nasc'];
+if (isset($_GET['action']) && $_GET['action'] == 'update') {
+    // Lógica de atualização do produto
+    if (isset($_POST['nome']) && isset($_POST['descricao']) && isset($_POST['preco']) && isset($_POST['quant_estoque'])) {
+        $id = $_POST['id'];
+        $nome = $_POST['nome'];
+        $descricao = $_POST['descricao'];
+        $preco = $_POST['preco'];
+        $quant_estoque = $_POST['quant_estoque'];
 
-            // Atualizar o usuário no banco de dados
-            $query = "UPDATE usuario SET nome='$nome', email='$email', data_nasc='$data_nasc' WHERE id='$id'";
-            mysqli_query($connect, $query);
-        }
+        // Atualizar o produto no banco de dados
+        $query = "UPDATE produto SET nome='$nome', descricao='$descricao', preco='$preco', quant_estoque='$quant_estoque' WHERE id_prod='$id'";
+        mysqli_query($connect, $query);
     }
+}
 
-    if (isset($_GET['action']) && $_GET['action'] == 'delete') {
-        // Lógica de exclusão do usuário
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
+if (isset($_GET['action']) && $_GET['action'] == 'delete') {
+    // Lógica de exclusão do produto
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
 
-            // Excluir o usuário do banco de dados
-            $query = "DELETE FROM usuario WHERE id='$id'";
-            mysqli_query($connect, $query);
-        }
+        // Excluir o produto do banco de dados
+        $query = "DELETE FROM produto WHERE id_prod='$id'";
+        mysqli_query($connect, $query);
     }
+}
 
-    $tabela = "usuario";
-    $order = "nome";
-    $usuarios = buscar($connect, $tabela, 1, $order);
- //else {
-//     header("location: login.php");
-//     exit();
-// }
+$tabela = "produto";
+$order = "nome";
+$produtos = buscar($connect, $tabela, 1, $order);
+//else {
+//header("location: login.php");
+//exit();
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +48,7 @@ require_once "sistemalogin/conexao.php";
     <link rel="icon" href="../../../../favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/cadastro.css">
-    <title>Gerenciador de Usuários</title>
+    <title>Gerenciador de Produtos</title>
 </head>
 <body>
     <?php //if ($seguranca) { ?>
@@ -59,19 +58,19 @@ require_once "sistemalogin/conexao.php";
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="dashboard.php">
+                                <a class="nav-link active" href="\PPI_ColletoSports_JulioCarvalhoERRO/dashboard.php">
                                     <span data-feather="home"></span>
                                     Dashboard<span class="sr-only">(atual)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="sistemaproduto/produtos.php">
+                                <a class="nav-link" href="#">
                                     <span data-feather="shopping-cart"></span>
                                     Produtos
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="users.php">
+                                <a class="nav-link" href="\PPI_ColletoSports_JulioCarvalhoERRO/users.php">
                                     <span data-feather="users"></span>
                                     Usuários
                                 </a>
@@ -87,17 +86,12 @@ require_once "sistemalogin/conexao.php";
 
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Usuários</h1>
+                        <h1 class="h2">Produtos</h1>
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-toolbar mb-2 mb-md-0">
                                 <div class="btn-group mr-2">
-                                    <button class="btn btn-sm btn-outline-secondary">Compartilhar</button>
-                                    <button class="btn btn-sm btn-outline-secondary">Exportar</button>
+                                    <a href="inserirproduto.php" class="btn btn-sm btn-outline-secondary">Inserir Produtos</a>
                                 </div>
-                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                                    <span data-feather="calendar"></span>
-                                    Esta semana
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -108,21 +102,25 @@ require_once "sistemalogin/conexao.php";
                                 <tr>
                                     <th>ID</th>
                                     <th>Nome</th>
-                                    <th>Email</th>
-                                    <th>Data</th>
+                                    <th>Descrição</th>
+                                    <th>Preço</th>
+                                    <th>Quantidade em Estoque</th>
+                                    <th>Imagem</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($usuarios as $usuario) : ?>
+                                <?php foreach ($produtos as $produto) : ?>
                                     <tr>
-                                        <td><?php echo $usuario['id']; ?></td>
-                                        <td><?php echo $usuario['nome']; ?></td>
-                                        <td><?php echo $usuario['email']; ?></td>
-                                        <td><?php echo $usuario['data_nasc']; ?></td>
+                                        <td><?php echo $produto['id_prod']; ?></td>
+                                        <td><?php echo $produto['nome']; ?></td>
+                                        <td><?php echo $produto['descricao']; ?></td>
+                                        <td><?php echo $produto['preco']; ?></td>
+                                        <td><?php echo $produto['quant_estoque']; ?></td>
+                                        <td><img src="data:image/jpeg;base64,<?= base64_encode($produto['imagem']) ?>" alt="Imagem do Produto" width="150" height="150"></td>
                                         <td>
-                                            <a href="sistemalogin/editar.php?id=<?php echo $usuario['id']; ?>">Editar</a>
-                                            <a href="users.php?action=delete&id=<?php echo $usuario['id']; ?>" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">Excluir</a>
+                                            <a href="atualizarproduto.php?id=<?php echo $produto['id_prod']; ?>">Editar</a>
+                                            <a href="excluirproduto.php?id=<?php echo $produto['id_prod']; ?>" onclick="return confirm('Tem certeza que deseja excluir este produto?')">Excluir</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

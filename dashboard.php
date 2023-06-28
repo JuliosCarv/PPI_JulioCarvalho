@@ -1,5 +1,5 @@
 <?php session_start();
-$seguranca = isset($_SESSION['ativa'])  ? TRUE : header("location: login.php")
+// $seguranca = isset($_SESSION['ativa'])  ? TRUE : header("location: login.php")
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,7 +18,7 @@ $seguranca = isset($_SESSION['ativa'])  ? TRUE : header("location: login.php")
   </head>
 
   <body>
-  <?php if($seguranca){ ?>
+  <!-- <?php //if($seguranca){ ?> -->
     <!-- <header>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Colleto Sports</a>
@@ -45,7 +45,7 @@ $seguranca = isset($_SESSION['ativa'])  ? TRUE : header("location: login.php")
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="sistemaproduto/produtos.php">
                   <span data-feather="shopping-cart"></span>
                   Produtos
                 </a>
@@ -176,7 +176,7 @@ $seguranca = isset($_SESSION['ativa'])  ? TRUE : header("location: login.php")
         }
       });
     </script>
-  <!-- <?php }?> //else {
+  <!-- <?php ?> //else {
     //header("location: login.php");
 
     // } -->
