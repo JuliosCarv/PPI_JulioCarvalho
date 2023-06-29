@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
     $preco = $_POST['preco'];
     $quantidade = $_POST['quantidade'];
+    $categoria = $_POST['categoria']; // Nova variável para a categoria
 
     // Verifica se uma imagem foi enviada
     if (isset($_FILES['imagem'])) {
@@ -25,13 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo = new PDO($dsn, $user, $password);
 
         // Insere o produto no banco de dados
-        $sql = "INSERT INTO produto (nome, descricao, preco, quant_estoque, imagem) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO produto (nome, descricao, preco, quant_estoque, imagem, categoria) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(1, $nome);
         $stmt->bindParam(2, $descricao);
         $stmt->bindParam(3, $preco);
         $stmt->bindParam(4, $quantidade);
         $stmt->bindParam(5, $imagemBytes, PDO::PARAM_LOB);
+        $stmt->bindParam(6, $categoria);
         $stmt->execute();
 
         // Redireciona para a página de produtos
@@ -104,6 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <label for="quantidade">Quantidade Estoque:</label>
         <input type="number" name="quantidade" required><br>
+        
+        <label for="categoria">Categoria:</label>
+        <input type="radio" name="categoria" value="M" required> Masculino
+        <input type="radio" name="categoria" value="F" required> Feminino
+        <input type="radio" name="categoria" value="E" required> Esportes<br>
         
         <label for="imagem">Imagem:</label>
         <input type="file" name="imagem" required><br>

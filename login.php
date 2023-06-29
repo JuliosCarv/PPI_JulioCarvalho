@@ -33,7 +33,7 @@ function login($connect) {
                 exit();
             }
         } else {
-            echo "Usuário não encontrado";
+            echo "Usuário não encontrado!";
         }
     } catch (PDOException $e) {
         die("Erro ao realizar o login: " . $e->getMessage());

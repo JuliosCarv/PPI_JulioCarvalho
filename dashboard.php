@@ -47,7 +47,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pedidos.php">
+                <a class="nav-link" href="sistemapedido\pedidos.php">
                   <span data-feather="file"></span>
                   Pedidos
                 </a>
@@ -148,7 +148,7 @@
       var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          labels: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
           datasets: [{
             data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
             lineTension: 0,

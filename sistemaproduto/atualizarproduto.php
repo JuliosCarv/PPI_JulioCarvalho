@@ -36,11 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descricao = $_POST['descricao'];
     $preco = $_POST['preco'];
     $quantidade = $_POST['quantidade'];
+    $categoria = $_POST['categoria'];
 
     // Atualiza o produto no banco de dados
-    $sql = "UPDATE produto SET nome = ?, descricao = ?, preco = ?, quant_estoque = ? WHERE id_prod = ?";
+    $sql = "UPDATE produto SET nome = ?, descricao = ?, preco = ?, quant_estoque = ?, categoria = ? WHERE id_prod = ?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nome, $descricao, $preco, $quantidade, $id]);
+    $stmt->execute([$nome, $descricao, $preco, $quantidade, $categoria, $id]);
 
     // Redireciona para a página de leitura de produtos
     header("Location: produtos.php");
@@ -110,6 +111,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <label for="quantidade">Quantidade Estoque:</label>
         <input type="number" name="quantidade" value="<?= $produto['quant_estoque'] ?>" required><br>
+        
+        <label for="categoria">Categoria:</label>
+        <input type="radio" name="categoria" value="M" <?php echo ($produto['categoria'] === 'M') ? 'checked' : ''; ?> required> Masculino
+        <input type="radio" name="categoria" value="F" <?php echo ($produto['categoria'] === 'F') ? 'checked' : ''; ?> required> Feminino
+        <input type="radio" name="categoria" value="E" <?php echo ($produto['categoria'] === 'E') ? 'checked' : ''; ?> required> Esportes<br>
         
         <input type="submit" value="Atualizar Produto">
     </form>
