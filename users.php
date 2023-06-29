@@ -81,7 +81,7 @@ require_once "sistemalogin/conexao.php";
                             </li>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pedidos.php">
+                                <a class="nav-link" href="sistemapedido\pedidos.php">
                                     <span data-feather="file"></span>
                                     Pedidos
                                     </a>

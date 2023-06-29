@@ -42,19 +42,19 @@ try {
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="dashboard.php">
+                                <a class="nav-link active" href="\PPI_ColletoSports_JulioCarvalhoERRO/dashboard.php">
                                     <span data-feather="home"></span>
                                     Dashboard<span class="sr-only">(atual)</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="sistemaproduto/produtos.php">
+                                <a class="nav-link" href="../sistemaproduto/produtos.php">
                                     <span data-feather="shopping-cart"></span>
                                     Produtos
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="users.php">
+                                <a class="nav-link" href="\PPI_ColletoSports_JulioCarvalhoERRO/users.php">
                                     <span data-feather="users"></span>
                                     Usuários
                                 </a>
